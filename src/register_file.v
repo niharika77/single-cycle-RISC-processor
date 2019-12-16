@@ -38,7 +38,7 @@ reg [15:0] rf[15:0];
 
   always @(posedge clk) begin
 
-    if (!reset && RegWrite)
+    if (RegWrite)
       rf[write_register] <= write_data;
       
   end
@@ -49,22 +49,23 @@ reg [15:0] rf[15:0];
  
   initial 
    begin
-    rf[0] = 16'h0000;
-    rf[1] = 16'h0001;
-    rf[2] = 16'h0002;
-    rf[3] = 16'h0003;
-    rf[4] = 16'h0004;
-    rf[5] = 16'h0005;
-    rf[6] = 16'h0006;
-    rf[7] = 16'h0007;
-    rf[8] = 16'h0008;
-    rf[9] = 16'h0009;
-    rf[10] = 16'h000a;
-    rf[11] = 16'h000b;
-    rf[12] = 16'h000c;
-    rf[13] = 16'h000d;
-    rf[14] = 16'h000e;
-    rf[15] = 16'h000f;   
+    $vcdplusmemon;
+    // rf[0] = 16'h0000;
+    // rf[1] = 16'h0001;
+    // rf[2] = 16'h0002;
+    // rf[3] = 16'h0003;
+    // rf[4] = 16'h0004;
+    // rf[5] = 16'h0005;
+    // rf[6] = 16'h0006;
+    // rf[7] = 16'h0007;
+    // rf[8] = 16'h0008;
+    // rf[9] = 16'h0009;
+    // rf[10] = 16'h000a;
+    // rf[11] = 16'h000b;
+    // rf[12] = 16'h000c;
+    // rf[13] = 16'h000d;
+    // rf[14] = 16'h000e;
+    // rf[15] = 16'h000f;   
    end
 
 endmodule

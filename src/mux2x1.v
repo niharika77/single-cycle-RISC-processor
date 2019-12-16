@@ -24,10 +24,16 @@ module mux2x1 #(parameter width = 16)(
               input [width-1:0] in1,       
               input [width-1:0] in2,    
               input sel,                     
-              output [width-1:0] out          
+              output reg [width-1:0] out          
               );
       
-             
-      assign out = sel?in2:in1;        
+    always @(*)
+     begin
+       if (sel == 1'b1)
+       	out = in2;
+       else
+        out = in1;
+     end
+                    
        
 endmodule

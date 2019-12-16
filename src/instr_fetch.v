@@ -63,9 +63,9 @@ sign_extend #(.width(6)) sign3(
                                     
 mux4x1 #(.width(16)) mux4x1_1
                             (
-                             .in1(extended_cond_address),
-                             .in2(extended_uncond_address),
-                             .in3(extended_link_address),
+                             .in1({{8{cond_address[7]}},cond_address}),
+                             .in2({{5{uncond_address[10]}},uncond_address}),
+                             .in3({{10{link_address[5]}},link_address}),
                              .in4(register_data_2),
                              .sel(branch_type),
                              .out(branch_address)

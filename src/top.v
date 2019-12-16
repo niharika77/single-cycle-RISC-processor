@@ -82,7 +82,7 @@ pc_manager pc_manager(
 //asynchronous instruction memory          
 instruction_mem instruction_memory(
                                    .address(next_address), 
-                                   .clk(clk),
+                                   //.clk(clk),
                                    .test(test),
                                    .instruction(instruction)
                                       );            
@@ -194,10 +194,10 @@ zero_extend #(.width(5)) zero_extend4(
                                      
 //to select which immediate to carry forward to ALU
  mux4x1 #(.width(16)) mux5(
-                          .in1(immediate1),
-                          .in2(immediate2),
-                          .in3(immediate3),  
-                          .in4(immediate4),  
+                          .in1({{8{1'b0}},instruction[7:0]}),
+                          .in2({{13{1'b0}},instruction[8:6]}),
+                          .in3({{9{1'b0}},instruction[6:0]}),  
+                          .in4({{11{1'b0}},instruction[10:6]}),  
                           .sel(immediate_sel),
                           .out(immediate_data)
                           );               

@@ -23,11 +23,14 @@
 
 module zero_extend #(parameter width = 1)(
                    input [width-1:0] input_i,
-                   output [15:0] zero_extended_address
+                   output reg [15:0] zero_extended_address
                    );
   
   
-  assign zero_extended_address[15:width] = 'b0;                 
-  assign zero_extended_address[width-1:0] = input_i;  
- 
+  always @(*)
+   begin
+	   zero_extended_address[15:width] = 'b0;                 
+	   zero_extended_address[width-1:0] = input_i;  
+   end
+
 endmodule

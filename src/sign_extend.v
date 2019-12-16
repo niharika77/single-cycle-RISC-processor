@@ -22,9 +22,12 @@
 
 module sign_extend #(parameter width = 1)(
                    input [width-1:0] input_i,
-                   output [15:0] extended_address
+                   output reg [15:0] extended_address
                    );
                    
-  assign extended_address = {{(16-width){input_i[width-1]}},input_i};  
- 
+   always @(*)
+    begin
+      extended_address = {{(16-width){input_i[width-1]}},input_i};  
+    end
+
 endmodule
